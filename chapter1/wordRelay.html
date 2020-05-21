@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id='root'>
+        <div>{{ word }}</div>
+        <form v-on:submit="onSubmitForm">
+            <input type="text" v-model="value" ref="refAnswer">
+            <button type="submit"> Button </button>
+        </form>
+        <div> {{result}}</div>
+    </div>
+</body>
+
+<script>
+    const app = new Vue({
+        el : '#root',
+        data : {
+            word : 'ryutakoo',
+            value : '',
+            result : '',
+        },
+        methods : {
+            onSubmitForm(e) {
+                e.preventDefault();
+                // console.log(this.word[this.word.length -1], this.value[0])
+                if(this.word[this.word.length -1] === this.value[0]) {
+                    this.result = '정답입니다';
+                    this.word = this.value;
+                    this.value = '';
+                    this.$refs.refAnswer.focus()
+                } else{
+                    this.result = '오답입니다';
+                }
+            },
+        },
+    })
+</script>
+</html>

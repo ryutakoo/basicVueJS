@@ -1,15 +1,26 @@
+const path = require('path');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+
 module.exports = { //웹팩 기본구조 EMPO
-    entry: {
-        app: 'main.js',
+    mode : 'development',
+    devtool : 'eval',
+    resolve : {
+        extensions : ['.js', '.vue']
     },
-    moudle: {
+    entry: {
+        app: path.join(__dirname, 'main.js'),
+    },
+    module: {
         rules : [{
-            
+            test : /\.vue$/,
+            use : 'vue-loader',
         }],
     },
-    plugins: [],
+    plugins: [
+        new VueLoaderPlugin(),
+    ],
     output: {
         filename : '[name].js',
-        path : './dist',
+        path : path.join(__dirname, 'dist'),
     },
 }

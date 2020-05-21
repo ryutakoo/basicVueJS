@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id='root'>
+        <div>{{first}} 더하기  {{second}} ? </div>
+        <form v-on:submit="onSubmitForm">
+            <input type="number" v-model="value" ref="answer">
+            <button type="submit"> Button </button>
+        </form>
+        <div>결과 : {{result}}</div>
+    </div>
+</body>
+
+<script>
+    const app = new Vue({
+        el : "#root",
+        data : {
+            first : Math.ceil(Math.random() * 9),
+            second : Math.ceil(Math.random() * 9),
+            value : "",
+            result : "",
+        },
+        methods : {
+            onSubmitForm(e) {
+                e.preventDefault();
+                if(this.first * this.second === parseInt(this.value)){
+                    this.result = "정답입니다";
+                    this.$refs.answer.focus();
+                    this.first = Math.ceil(Math.random() * 9)
+                    this.second = Math.ceil(Math.random() * 9)
+                    this.value = ""
+                    this.result =""
+                } else{
+                    this.result = "오답입니다";
+                }
+            },
+        },
+    })
+</script>
+
+
+
+</html>

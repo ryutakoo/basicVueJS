@@ -1,5 +1,6 @@
 const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = { //웹팩 기본구조 EMPO
     mode : 'development',
@@ -18,9 +19,15 @@ module.exports = { //웹팩 기본구조 EMPO
     },
     plugins: [
         new VueLoaderPlugin(),
+        // new HtmlWebpackPlugin({
+        //     template : 'NumberBaseball.html'
+        // })
     ],
     output: {
         filename : '[name].js',
         path : path.join(__dirname, 'dist'),
     },
+    // devServer : {
+    //     port : 9000,
+    // },
 }

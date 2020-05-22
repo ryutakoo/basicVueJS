@@ -4,3 +4,4 @@ ryutakoo.
 Chap 1. Vue.js 소개 및 HTML 기반 기초 실습
 Chap 2. 컴포넌트 관련 기초 실습
 Chap 3. 숫자야구 게임 실습 완료 - Webpack 사용 및 설정 방법 실습
+Chap 4. 반응속도 체크 게임 만들기 실습 완료  - webpack-dev-server, computed 속성, style 사용 시 css-loader, vue-style-loader + output('publicPath') 설정, template 부모/형제 클래스 설정
